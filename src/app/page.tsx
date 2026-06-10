@@ -159,48 +159,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="w-full px-[300px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
-            <div className="space-y-4">
-              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-realty-primary border border-gray-100 group hover:bg-realty-primary hover:text-white transition-colors duration-300">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-              </div>
-              <h3 className="font-bold text-realty-dark text-[15px] uppercase font-heading tracking-wide">Our Mission</h3>
-              <p className="text-gray-500 text-[13px]">To provide the best real estate service.</p>
-            </div>
+      {/* Our Mission / Features Section */}
+      <section className="py-24 bg-white">
+        <div className="w-full px-[300px] mx-auto flex">
+          {/* Push everything to the right side of the screen */}
+          <div className="w-full md:w-[60%] ml-auto flex flex-col gap-12">
             
-            <div className="space-y-4">
-              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-realty-primary border border-gray-100 group hover:bg-realty-primary hover:text-white transition-colors duration-300">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              </div>
-              <h3 className="font-bold text-realty-dark text-[15px] uppercase font-heading tracking-wide">Save Money</h3>
-              <p className="text-gray-500 text-[13px]">No hidden fees or extra costs.</p>
+            {/* Mission Text (At the top, different row) */}
+            <div className="w-full">
+              <h2 className="text-3xl font-bold mb-6 font-heading uppercase tracking-wider relative inline-block text-realty-dark">
+                Our Mission
+                <div className="absolute w-12 h-0.5 bg-realty-primary bottom-[-15px] left-0"></div>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mt-8 font-light text-[15px]">
+                Our mission is to empower consumers with information to make smart decisions. RealtySpace is a real estate marketplace dedicated to helping homeowners, home buyers, sellers, renters and agents find and share information about homes, real estate and home improvement.
+              </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-realty-primary border border-gray-100 group hover:bg-realty-primary hover:text-white transition-colors duration-300">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            {/* Features Grid (Below the text) */}
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+              
+              <div className="flex gap-6">
+                <div className="text-realty-primary flex-shrink-0">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-realty-dark text-lg font-heading tracking-wide mb-2">Save Money</h3>
+                  <p className="text-gray-500 text-[13px] leading-relaxed">It starts with our living database of more than 110 million U.S. homes – including homes for sale, homes for rent and homes not currently on the market.</p>
+                </div>
               </div>
-              <h3 className="font-bold text-realty-dark text-[15px] uppercase font-heading tracking-wide">Good Sales</h3>
-              <p className="text-gray-500 text-[13px]">Proven track record of high value sales.</p>
-            </div>
 
-            <div className="space-y-4">
-              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-realty-primary border border-gray-100 group hover:bg-realty-primary hover:text-white transition-colors duration-300">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+              <div className="flex gap-6">
+                <div className="text-realty-primary flex-shrink-0">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-realty-dark text-lg font-heading tracking-wide mb-2">Good Sales & Marketing</h3>
+                  <p className="text-gray-500 text-[13px] leading-relaxed">In addition, RealtySpace operates the largest real estate and rental advertising networks in the U.S. in partnership with Livemile Homes!</p>
+                </div>
               </div>
-              <h3 className="font-bold text-realty-dark text-[15px] uppercase font-heading tracking-wide">Comfort</h3>
-              <p className="text-gray-500 text-[13px]">Smooth and stress-free transitions.</p>
-            </div>
 
-            <div className="space-y-4">
-              <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-realty-primary border border-gray-100 group hover:bg-realty-primary hover:text-white transition-colors duration-300">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              <div className="flex gap-6">
+                <div className="text-realty-primary flex-shrink-0">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-realty-dark text-lg font-heading tracking-wide mb-2">Comfort</h3>
+                  <p className="text-gray-500 text-[13px] leading-relaxed">We strive to ensure the most comfortable and stress-free transitions into your new home with professional guidance every step of the way.</p>
+                </div>
               </div>
-              <h3 className="font-bold text-realty-dark text-[15px] uppercase font-heading tracking-wide">Easy to Find</h3>
-              <p className="text-gray-500 text-[13px]">Find your dream home in just a few clicks.</p>
+
+              <div className="flex gap-6">
+                <div className="text-realty-primary flex-shrink-0">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-realty-dark text-lg font-heading tracking-wide mb-2">Easy to Find</h3>
+                  <p className="text-gray-500 text-[13px] leading-relaxed">With an intuitive interface and smart filtering options, discovering your perfect dream home has never been easier or faster.</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
