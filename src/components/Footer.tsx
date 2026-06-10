@@ -3,7 +3,7 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer className="bg-[#222] text-[#bebebe] py-16 mt-auto font-sans text-[13px]">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="w-full px-[300px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         
         {/* Column 1: Archives, Categories, About & Social */}
         <div className="space-y-10">
@@ -110,7 +110,7 @@ export function Footer() {
       </div>
       
       {/* Copyright Line */}
-      <div className="container mx-auto px-4 mt-12 pt-8 border-t border-[#3a3a3a] flex items-center justify-between">
+      <div className="w-full px-[300px] mx-auto mt-12 pt-8 border-t border-[#3a3a3a] flex items-center justify-between">
         <span>&copy; {new Date().getFullYear()} Garnish Real Estate | Main. All rights reserved.</span>
       </div>
     </footer>

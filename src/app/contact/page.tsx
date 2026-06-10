@@ -33,9 +33,6 @@ export default function ContactPage() {
       <div className="py-10 relative mb-6">
         <div className="w-full px-[300px] text-center relative z-10">
           <h1 className="text-2xl font-bold mb-3 text-realty-dark font-heading uppercase tracking-wider">Contact</h1>
-          <div className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider font-heading">
-            <span className="hover:text-realty-primary cursor-pointer transition-colors">Home</span> <span className="mx-2">/</span> <span className="text-realty-primary">Contact</span>
-          </div>
         </div>
       </div>
 

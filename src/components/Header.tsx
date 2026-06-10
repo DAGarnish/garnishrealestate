@@ -10,15 +10,39 @@ export function Header() {
         {/* Left Section: Settings */}
         <div className="flex-1 flex items-center">
           <div className="flex items-center space-x-4">
-            <div className="relative group cursor-pointer flex items-center hover:opacity-80 transition-opacity">
-              <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span>USD</span>
+            
+            {/* Currency Dropdown */}
+            <div className="relative group cursor-pointer flex items-center py-1">
+              <div className="flex items-center hover:opacity-80 transition-opacity">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>USD</span>
+              </div>
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-0 w-32 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+                <div className="py-2 flex flex-col">
+                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">EUR</a>
+                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">GBP</a>
+                </div>
+              </div>
             </div>
-            <div className="relative group cursor-pointer flex items-center hover:opacity-80 transition-opacity">
-              <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-              <span>ENG</span>
+
+            {/* Language Dropdown */}
+            <div className="relative group cursor-pointer flex items-center py-1">
+              <div className="flex items-center hover:opacity-80 transition-opacity">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                <span>ENG</span>
+              </div>
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-0 w-32 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+                <div className="py-2 flex flex-col">
+                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">FRA</a>
+                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">SPA</a>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity">
+
+            {/* Area Switcher */}
+            <div className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity py-1">
               <span>SQFT</span>
               <div className="w-6 h-3 bg-white/30 rounded-full relative">
                 <div className="w-2.5 h-2.5 bg-white rounded-full absolute top-[1px] left-[1px]"></div>
@@ -49,11 +73,7 @@ export function Header() {
 
         {/* Right Section: Email & Auth */}
         <div className="flex-1 flex items-center justify-end">
-          <span className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
-            <svg className="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-            contact@realtyspace.com
-          </span>
-          <div className="flex items-center space-x-2 pl-6 ml-6 border-l border-white/20">
+          <div className="flex items-center space-x-2">
             <Link href="/login" className="hover:opacity-80 transition-opacity">Log in</Link>
             <span>/</span>
             <Link href="/register" className="hover:opacity-80 transition-opacity">Sign up</Link>
@@ -77,6 +97,47 @@ export function Header() {
               Properties
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-56 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-[11px]">
+                <Link href="/properties/?mode=list" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">List</Link>
+                <Link href="/properties/?mode=table" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Table</Link>
+                
+                {/* Grid Sub-menu */}
+                <div className="relative group/sub">
+                  <div className="px-4 py-2 hover:bg-white/10 text-white transition-colors cursor-pointer flex items-center justify-between">
+                    <span>Grid</span>
+                    <svg className="w-3 h-3 ml-1 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </div>
+                  <div className="absolute top-0 left-full ml-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform origin-left -translate-x-2 group-hover/sub:translate-x-0 z-50">
+                    <div className="py-2 flex flex-col">
+                      <Link href="/properties/?opt_property_grid_size=small" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Small</Link>
+                      <Link href="/properties/?opt_property_grid_size=medium" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Medium</Link>
+                      <Link href="/properties/?opt_property_grid_size=big" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Large</Link>
+                    </div>
+                  </div>
+                </div>
+
+                <Link href="/properties/property-agent-bottom" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Property & agent at bottom</Link>
+                <Link href="/properties/property-sidebar-agent" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Property & sidebar agent</Link>
+                
+                {/* Filter by types Sub-menu */}
+                <div className="relative group/sub">
+                  <div className="px-4 py-2 hover:bg-white/10 text-white transition-colors cursor-pointer flex items-center justify-between">
+                    <span>Filter by types</span>
+                    <svg className="w-3 h-3 ml-1 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </div>
+                  <div className="absolute top-0 left-full ml-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform origin-left -translate-x-2 group-hover/sub:translate-x-0 z-50">
+                    <div className="py-2 flex flex-col">
+                      <Link href="/property_type/apartmentsflat" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Apartments/Flat</Link>
+                      <Link href="/property_type/villa-house" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Villa / House</Link>
+                      <Link href="/property_type/commercial" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Commercial</Link>
+                      <Link href="/property_type/cottage" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Cottage</Link>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
@@ -84,6 +145,12 @@ export function Header() {
               Agents
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/agents?mode=list" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">All Agents</Link>
+                <Link href="/agents/helene-powers" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Single Agent</Link>
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
@@ -91,6 +158,12 @@ export function Header() {
               User
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/user/profile" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Profile</Link>
+                <Link href="/user/settings" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Settings</Link>
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
@@ -98,16 +171,50 @@ export function Header() {
               Pages
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/about" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">About Us</Link>
+                <Link href="/faq" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">FAQ</Link>
+              </div>
+            </div>
           </div>
 
-          <Link href="/gallery" className="hover:text-realty-primary transition-colors py-2">Gallery</Link>
-          <Link href="/blog" className="hover:text-realty-primary transition-colors py-2">Blog</Link>
+          <div className="relative group">
+            <Link href="/gallery" className="hover:text-realty-primary transition-colors py-2 flex items-center">
+              Gallery
+              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/gallery/full" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Gallery Full</Link>
+                <Link href="/gallery/grid" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Gallery Grid</Link>
+              </div>
+            </div>
+          </div>
+          <div className="relative group">
+            <Link href="/blog" className="hover:text-realty-primary transition-colors py-2 flex items-center">
+              Blog
+              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/blog/default" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Blog Default</Link>
+                <Link href="/blog/grid" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Blog Grid</Link>
+              </div>
+            </div>
+          </div>
 
           <div className="relative group">
             <Link href="/idx" className="hover:text-realty-primary transition-colors py-2 flex items-center">
               IDX / MLS
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/idx/search" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Property Search</Link>
+                <Link href="/idx/map" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Map Search</Link>
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
@@ -115,6 +222,12 @@ export function Header() {
               Other
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/404" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">404 Page</Link>
+                <Link href="/terms" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Terms of Service</Link>
+              </div>
+            </div>
           </div>
 
           <div className="relative group">
@@ -122,6 +235,12 @@ export function Header() {
               Contact
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
+            <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="py-2 flex flex-col capitalize text-xs text-white">
+                <Link href="/contact" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Contact & Map</Link>
+                <Link href="/contact/banner" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Contact & Banner</Link>
+              </div>
+            </div>
           </div>
         </nav>
         
