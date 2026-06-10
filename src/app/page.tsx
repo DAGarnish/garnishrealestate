@@ -79,8 +79,8 @@ export default function Home() {
                 <input type="range" className="w-full accent-realty-primary" />
               </div>
               
-              <button className="w-full bg-realty-primary hover:bg-[#009b8e] text-white font-bold font-heading uppercase tracking-wider py-4 rounded-sm transition duration-300 shadow-md mt-2">
-                Search
+              <button className="w-full bg-realty-accent hover:opacity-90 text-realty-dark font-bold font-heading uppercase tracking-wider py-4 rounded-sm transition duration-300 shadow-md mt-2">
+                See results
               </button>
             </div>
           </div>
