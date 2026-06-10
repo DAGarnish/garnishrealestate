@@ -1,11 +1,16 @@
+"use client";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
 
 export function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
   return (
-    <header className="w-full sticky top-0 z-50 shadow-sm font-heading">
+    <header className={`w-full z-50 font-heading ${isHome ? 'absolute top-0 bg-transparent text-white' : 'sticky top-0 shadow-sm'}`}>
       {/* Top Bar */}
-      <div className="w-full bg-realty-primary text-white py-3 px-[300px] flex items-center justify-between text-[11px] uppercase tracking-wider hidden lg:flex">
+      <div className={`w-full py-3 px-[300px] flex items-center justify-between text-[11px] uppercase tracking-wider hidden lg:flex transition-colors duration-300 ${isHome ? 'bg-black/20 text-white' : 'bg-realty-primary text-white'}`}>
         
         {/* Left Section: Settings */}
         <div className="flex-1 flex items-center">
@@ -20,8 +25,8 @@ export function Header() {
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 mt-0 w-32 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="py-2 flex flex-col">
-                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">EUR</a>
-                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">GBP</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">EUR</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">GBP</a>
                 </div>
               </div>
             </div>
@@ -35,8 +40,8 @@ export function Header() {
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 mt-0 w-32 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="py-2 flex flex-col">
-                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">FRA</a>
-                  <a href="#" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">SPA</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">FRA</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">SPA</a>
                 </div>
               </div>
             </div>
@@ -81,15 +86,15 @@ export function Header() {
         </div>
       </div>
 
-      <div className="w-full bg-[#f6f6f6] px-[300px] py-4 flex items-center justify-between border-b border-gray-200">
+      <div className={`w-full px-[300px] py-4 flex items-center justify-between border-b transition-colors duration-300 ${isHome ? 'bg-transparent border-white/20' : 'bg-[#f6f6f6] border-gray-200'}`}>
         <Link href="/" className="flex items-center">
           <img 
             src="https://garnishrealestate.com/wp-content/uploads/2022/09/Garnish-Real-Estate-Logo.png" 
             alt="Garnish Real Estate" 
-            className="h-10 w-auto"
+            className="h-10 w-auto filter-none"
           />
         </Link>
-        <nav className="hidden xl:flex items-center space-x-4 font-semibold text-[11px] uppercase tracking-wider text-realty-dark">
+        <nav className={`hidden xl:flex items-center space-x-4 font-semibold text-[11px] uppercase tracking-wider ${isHome ? 'text-white' : 'text-realty-dark'}`}>
           <Link href="/" className="hover:text-realty-primary transition-colors py-2">Home</Link>
           
           <div className="relative group">
@@ -99,39 +104,39 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-56 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-[11px]">
-                <Link href="/properties/?mode=list" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">List</Link>
-                <Link href="/properties/?mode=table" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Table</Link>
+                <Link href="/properties/?mode=list" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">List</Link>
+                <Link href="/properties/?mode=table" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Table</Link>
                 
                 {/* Grid Sub-menu */}
                 <div className="relative group/sub">
-                  <div className="px-4 py-2 hover:bg-white/10 text-white transition-colors cursor-pointer flex items-center justify-between">
+                  <div className="px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2 cursor-pointer flex items-center justify-between">
                     <span>Grid</span>
                     <svg className="w-3 h-3 ml-1 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                   </div>
                   <div className="absolute top-0 left-full ml-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform origin-left -translate-x-2 group-hover/sub:translate-x-0 z-50">
                     <div className="py-2 flex flex-col">
-                      <Link href="/properties/?opt_property_grid_size=small" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Small</Link>
-                      <Link href="/properties/?opt_property_grid_size=medium" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Medium</Link>
-                      <Link href="/properties/?opt_property_grid_size=big" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Large</Link>
+                      <Link href="/properties/?opt_property_grid_size=small" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Small</Link>
+                      <Link href="/properties/?opt_property_grid_size=medium" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Medium</Link>
+                      <Link href="/properties/?opt_property_grid_size=big" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Large</Link>
                     </div>
                   </div>
                 </div>
 
-                <Link href="/properties/property-agent-bottom" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Property & agent at bottom</Link>
-                <Link href="/properties/property-sidebar-agent" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Property & sidebar agent</Link>
+                <Link href="/properties/property-agent-bottom" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Property & agent at bottom</Link>
+                <Link href="/properties/property-sidebar-agent" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Property & sidebar agent</Link>
                 
                 {/* Filter by types Sub-menu */}
                 <div className="relative group/sub">
-                  <div className="px-4 py-2 hover:bg-white/10 text-white transition-colors cursor-pointer flex items-center justify-between">
+                  <div className="px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2 cursor-pointer flex items-center justify-between">
                     <span>Filter by types</span>
                     <svg className="w-3 h-3 ml-1 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                   </div>
                   <div className="absolute top-0 left-full ml-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform origin-left -translate-x-2 group-hover/sub:translate-x-0 z-50">
                     <div className="py-2 flex flex-col">
-                      <Link href="/property_type/apartmentsflat" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Apartments/Flat</Link>
-                      <Link href="/property_type/villa-house" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Villa / House</Link>
-                      <Link href="/property_type/commercial" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Commercial</Link>
-                      <Link href="/property_type/cottage" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Cottage</Link>
+                      <Link href="/property_type/apartmentsflat" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Apartments/Flat</Link>
+                      <Link href="/property_type/villa-house" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Villa / House</Link>
+                      <Link href="/property_type/commercial" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Commercial</Link>
+                      <Link href="/property_type/cottage" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Cottage</Link>
                     </div>
                   </div>
                 </div>
@@ -147,8 +152,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/agents?mode=list" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">All Agents</Link>
-                <Link href="/agents/helene-powers" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Single Agent</Link>
+                <Link href="/agents?mode=list" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">All Agents</Link>
+                <Link href="/agents/helene-powers" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Single Agent</Link>
               </div>
             </div>
           </div>
@@ -159,12 +164,14 @@ export function Header() {
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
-              <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/user/profile" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Profile</Link>
-                <Link href="/user/settings" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Settings</Link>
+              <div className="py-2 flex flex-col capitalize text-[11px]">
+                <Link href="/user/my-properties" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">My properties</Link>
+                <Link href="/user/submit-property" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Submit a property</Link>
+                <Link href="/user/profile" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Profile</Link>
               </div>
             </div>
           </div>
+
 
           <div className="relative group">
             <Link href="/pages" className="hover:text-realty-primary transition-colors py-2 flex items-center">
@@ -173,8 +180,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/about" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">About Us</Link>
-                <Link href="/faq" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">FAQ</Link>
+                <Link href="/about" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">About Us</Link>
+                <Link href="/faq" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">FAQ</Link>
               </div>
             </div>
           </div>
@@ -186,8 +193,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/gallery/full" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Gallery Full</Link>
-                <Link href="/gallery/grid" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Gallery Grid</Link>
+                <Link href="/gallery/full" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Gallery Full</Link>
+                <Link href="/gallery/grid" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Gallery Grid</Link>
               </div>
             </div>
           </div>
@@ -198,8 +205,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/blog/default" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Blog Default</Link>
-                <Link href="/blog/grid" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Blog Grid</Link>
+                <Link href="/blog/default" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Blog Default</Link>
+                <Link href="/blog/grid" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Blog Grid</Link>
               </div>
             </div>
           </div>
@@ -211,8 +218,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/idx/search" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Property Search</Link>
-                <Link href="/idx/map" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Map Search</Link>
+                <Link href="/idx/search" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Property Search</Link>
+                <Link href="/idx/map" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Map Search</Link>
               </div>
             </div>
           </div>
@@ -224,8 +231,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/404" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">404 Page</Link>
-                <Link href="/terms" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Terms of Service</Link>
+                <Link href="/404" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">404 Page</Link>
+                <Link href="/terms" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Terms of Service</Link>
               </div>
             </div>
           </div>
@@ -237,8 +244,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-0 mt-0 w-48 bg-realty-primary text-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2 flex flex-col capitalize text-xs text-white">
-                <Link href="/contact" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Contact & Map</Link>
-                <Link href="/contact/banner" className="px-4 py-2 hover:bg-white/10 text-white transition-colors">Contact & Banner</Link>
+                <Link href="/contact" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Contact & Map</Link>
+                <Link href="/contact/banner" className="block px-4 py-2 hover:bg-white/10 text-white transition-all duration-300 hover:translate-x-2">Contact & Banner</Link>
               </div>
             </div>
           </div>

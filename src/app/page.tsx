@@ -5,38 +5,81 @@ export default function Home() {
     <div className="flex flex-col min-h-screen font-sans">
       
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center bg-[#2c3e50] text-white">
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center" 
-          style={{ backgroundImage: "url('https://garnishrealestate.com/wp-content/uploads/2015/05/slider-1.jpg')", opacity: 0.4 }}
-        />
-        <div className="w-full px-[300px] relative z-10 text-center">
-          <h1 className="text-5xl font-bold mb-4 font-heading leading-tight tracking-wide drop-shadow-md">
-            THE BEST WAY TO FIND YOUR HOME
-          </h1>
-          <p className="text-lg mb-10 max-w-2xl mx-auto drop-shadow text-gray-200">
-            With over 700,000 active listings, Realtyspace has the largest inventory of apartments in the United States.
-          </p>
+      <section className="relative min-h-[85vh] py-32 flex items-center justify-center bg-[#2c3e50] text-white overflow-hidden">
+        {/* YouTube Video Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <iframe 
+            src="https://www.youtube.com/embed/lMJXxhRFO1k?autoplay=1&mute=1&loop=1&playlist=lMJXxhRFO1k&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" 
+            className="w-[100vw] h-[56.25vw] min-h-[85vh] min-w-[151vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-60"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+          />
+        </div>
+        <div className="absolute inset-0 z-0 bg-black/30" />
+        <div className="w-full px-[300px] relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+          
+          {/* Hero Text Content */}
+          <div className="w-full md:w-1/2 text-left">
+            <h1 className="text-5xl font-bold mb-6 font-heading leading-tight tracking-wide drop-shadow-md">
+              THE BEST WAY TO FIND YOUR HOME
+            </h1>
+            <p className="text-lg drop-shadow text-gray-200">
+              With over 700,000 active listings, Realtyspace has the largest inventory of apartments in the United States.
+            </p>
+          </div>
 
-          {/* Search Form Tab */}
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-sm shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <input 
-                type="text" 
-                placeholder="Address, City, Zip" 
-                className="w-full px-4 py-3 rounded-sm border-none text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary"
-              />
-              <select className="w-full px-4 py-3 rounded-sm border-none text-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary">
-                <option>Any Location</option>
-                <option>New York</option>
-                <option>Florida</option>
-              </select>
-              <select className="w-full px-4 py-3 rounded-sm border-none text-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary">
-                <option>Any Property Type</option>
-                <option>Apartments/Flat</option>
-                <option>Villa / House</option>
-              </select>
-              <button className="bg-realty-primary hover:bg-[#009b8e] text-white font-bold font-heading uppercase tracking-wider py-3 rounded-sm transition duration-300 shadow-md">
+          {/* Search Form Sidebar */}
+          <div className="w-full md:w-[350px] bg-black/40 backdrop-blur-sm p-8 rounded-sm shadow-2xl flex-shrink-0">
+            <h3 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-lg border-b border-white/20 pb-4">Search Properties</h3>
+            
+            {/* Form Fields */}
+            <div className="space-y-4">
+              <div className="flex flex-col text-left">
+                <label className="text-[11px] text-gray-300 uppercase tracking-wider mb-2 font-bold">SKU</label>
+                <input 
+                  type="text" 
+                  className="w-full px-4 py-2 bg-white/90 rounded-sm border-none text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary transition"
+                />
+              </div>
+
+              <div className="flex flex-col text-left">
+                <label className="text-[11px] text-gray-300 uppercase tracking-wider mb-2 font-bold">Property Location</label>
+                <select className="w-full px-4 py-2 bg-white/90 rounded-sm border-none text-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary transition">
+                  <option>Any</option>
+                  <option>New York</option>
+                  <option>Florida</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col text-left">
+                <label className="text-[11px] text-gray-300 uppercase tracking-wider mb-2 font-bold">Contract type</label>
+                <select className="w-full px-4 py-2 bg-white/90 rounded-sm border-none text-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary transition">
+                  <option>Any</option>
+                  <option>Sale</option>
+                  <option>Rent</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col text-left">
+                <label className="text-[11px] text-gray-300 uppercase tracking-wider mb-2 font-bold">Property type</label>
+                <select className="w-full px-4 py-2 bg-white/90 rounded-sm border-none text-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-realty-primary transition">
+                  <option>Any</option>
+                  <option>Apartment</option>
+                  <option>Villa / House</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col text-left pt-2">
+                <label className="text-[11px] text-gray-300 uppercase tracking-wider mb-2 font-bold">Price ($)</label>
+                <input type="range" className="w-full accent-realty-primary" />
+              </div>
+
+              <div className="flex flex-col text-left pt-2 mb-6">
+                <label className="text-[11px] text-gray-300 uppercase tracking-wider mb-2 font-bold">Bedrooms</label>
+                <input type="range" className="w-full accent-realty-primary" />
+              </div>
+              
+              <button className="w-full bg-realty-primary hover:bg-[#009b8e] text-white font-bold font-heading uppercase tracking-wider py-4 rounded-sm transition duration-300 shadow-md mt-2">
                 Search
               </button>
             </div>
@@ -181,6 +224,121 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      {/* News and Blog Section */}
+      <section className="py-20 bg-white border-b border-gray-100">
+        <div className="w-full px-[300px] mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12 text-realty-dark font-heading uppercase tracking-wider relative inline-block">
+            News and Blog
+            <div className="absolute w-12 h-0.5 bg-realty-primary bottom-[-15px] left-1/2 transform -translate-x-1/2"></div>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white group cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-gray-100 rounded-sm">
+                <div className="overflow-hidden relative h-48">
+                  <img src={`https://garnishrealestate.com/wp-content/uploads/2015/07/${i}-1.jpg`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blog" />
+                  <div className="absolute top-4 left-4 bg-realty-primary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-sm shadow-sm">Jul 20, 2016</div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2 text-realty-dark font-heading group-hover:text-realty-primary transition">Top 10 Tips for Finding Your Dream Home</h3>
+                  <p className="text-gray-500 text-[13px] mb-4">Insights, tips & how-to guides on selling property and preparing your home or investment property for sale...</p>
+                  <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold flex items-center space-x-2 pt-4 border-t border-gray-100">
+                    <span className="hover:text-realty-primary transition">By Admin</span>
+                    <span>•</span>
+                    <span className="hover:text-realty-primary transition">Real Estate</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-[#f9f9f9]">
+        <div className="w-full px-[300px] mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12 text-realty-dark font-heading uppercase tracking-wider relative inline-block">
+            Testimonials
+            <div className="absolute w-12 h-0.5 bg-realty-primary bottom-[-15px] left-1/2 transform -translate-x-1/2"></div>
+          </h2>
+          <div className="max-w-4xl mx-auto bg-white p-10 rounded-sm shadow-sm relative italic text-gray-600 border border-gray-100">
+            <svg className="w-12 h-12 text-realty-primary/20 absolute top-4 left-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+            <p className="text-lg mb-6 relative z-10 leading-relaxed font-sans">
+              "Working with Realtyspace was the best decision we made. Their agents are incredibly knowledgeable and they guided us through every step of buying our first home. We couldn't be happier!"
+            </p>
+            <div className="flex items-center justify-center space-x-4">
+              <img src="https://garnishrealestate.com/wp-content/uploads/2015/07/2-3.jpg" className="w-16 h-16 rounded-full object-cover" alt="Client" />
+              <div className="text-left">
+                <h4 className="font-bold text-realty-dark font-heading text-[15px] not-italic">Sarah & John Jenkins</h4>
+                <p className="text-gray-500 text-[11px] uppercase tracking-wider not-italic">Happy Clients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sell or Rent CTA Background Banner */}
+      <section className="relative py-24 flex items-center justify-center bg-[#2c3e50] text-white">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center" 
+          style={{ backgroundImage: "url('https://garnishrealestate.com/wp-content/uploads/2016/04/bg-feature.jpg')", opacity: 0.15 }}
+        />
+        <div className="w-full px-[300px] relative z-10 text-center flex flex-col items-center">
+          <div className="text-4xl font-heading mb-8 uppercase tracking-wide">
+            <span className="font-light">Looking to</span> <span className="font-bold text-realty-primary mx-2">Sell</span> <span className="font-light">or</span> <span className="font-bold text-realty-primary mx-2">Rent</span> <span className="font-light">Your Property?</span>
+          </div>
+          <a href="/submit-a-property/" className="bg-realty-primary hover:bg-[#009b8e] text-white font-bold font-heading uppercase tracking-wider px-10 py-4 rounded-sm transition duration-300 shadow-xl">
+            Submit now
+          </a>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-16 bg-white border-t border-gray-100 overflow-hidden relative group/slider">
+        <div className="w-full px-[300px] mx-auto text-center relative z-10">
+          <h2 className="text-3xl font-bold mb-12 text-realty-dark font-heading uppercase tracking-wider relative inline-block">
+            Partners
+            <div className="absolute w-12 h-0.5 bg-realty-primary bottom-[-15px] left-1/2 transform -translate-x-1/2"></div>
+          </h2>
+          
+          <div className="relative w-full flex items-center justify-center group-hover/slider:cursor-ew-resize">
+            {/* Left Arrow */}
+            <button className="absolute left-0 w-10 h-10 bg-white border border-gray-200 shadow-sm rounded-full flex items-center justify-center text-gray-400 hover:text-realty-primary hover:border-realty-primary transition z-20">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            
+            {/* Partners Wrapper with CSS Marquee */}
+            <div className="w-[80%] overflow-hidden relative flex">
+              <style>{`
+                @keyframes scroll {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .animate-scroll {
+                  animation: scroll 20s linear infinite;
+                }
+              `}</style>
+              <div className="flex items-center opacity-50 grayscale hover:grayscale-0 transition-all duration-300 w-max animate-scroll hover:[animation-play-state:paused]">
+                {[1, 2].map(set => (
+                  <div key={set} className="flex items-center space-x-16 px-8">
+                    <img src="https://garnishrealestate.com/wp-content/themes/realtyspace/public/img/partners/1.png" alt="ThemeForest" className="h-8 object-contain" />
+                    <img src="https://garnishrealestate.com/wp-content/themes/realtyspace/public/img/partners/2.png" alt="AudioJungle" className="h-8 object-contain" />
+                    <img src="https://garnishrealestate.com/wp-content/themes/realtyspace/public/img/partners/3.png" alt="CodeCanyon" className="h-8 object-contain" />
+                    <img src="https://garnishrealestate.com/wp-content/themes/realtyspace/public/img/partners/4.png" alt="GraphicRiver" className="h-8 object-contain" />
+                    <img src="https://garnishrealestate.com/wp-content/themes/realtyspace/public/img/partners/5.png" alt="VideoHive" className="h-8 object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Arrow */}
+            <button className="absolute right-0 w-10 h-10 bg-white border border-gray-200 shadow-sm rounded-full flex items-center justify-center text-gray-400 hover:text-realty-primary hover:border-realty-primary transition z-20">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
           </div>
         </div>
       </section>
