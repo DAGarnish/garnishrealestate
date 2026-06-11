@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #2c3e50;
+  --background: #f3f4f6; /* Rightmove light background */
+  --foreground: #000433; /* Rightmove Navy */
 }
 
 @theme inline {
@@ -11,25 +11,63 @@
   --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   
-  --color-realty-primary: #00bbaa;
-  --color-realty-dark: #2c3e50;
-  --color-realty-accent: #f3bc65;
-  --color-realty-action: #e95b35;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Rightmove Theme Palette */
+  --color-rm-teal: #00deb6;          /* Bright teal */
+  --color-rm-teal-dark: #00847b;     /* High-contrast dark teal for text */
+  --color-rm-teal-hover: #00be9b;    /* Hover teal */
+  --color-rm-navy: #000433;          /* Dark navy for hero / main headers */
+  --color-rm-navy-hover: #000852;    /* Navy hover */
+  --color-rm-light-gray: #f3f4f6;    /* Light gray base */
+  --color-rm-border: #dbdee0;        /* Light gray borders */
+  --color-rm-muted: #5e6573;         /* Muted blue-gray text */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Rightmove UI styles */
+.rm-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.rm-card {
+  background: #ffffff;
+  border: 1px solid var(--color-rm-border);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 4, 51, 0.05);
+}
+
+.rm-btn-primary {
+  background-color: var(--color-rm-teal-dark);
+  color: #ffffff;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.rm-btn-primary:hover {
+  background-color: #006b64;
+}
+
+.rm-btn-secondary {
+  background-color: #ffffff;
+  color: var(--color-rm-navy);
+  border: 1px solid var(--color-rm-navy);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.rm-btn-secondary:hover {
+  background-color: var(--color-rm-light-gray);
 }
