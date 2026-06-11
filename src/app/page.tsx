@@ -119,7 +119,7 @@ export default function Home() {
             className="object-cover object-[center_35%] opacity-100 scale-100"
             priority
           />
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -247,7 +247,7 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-bold text-[#000433]">All legal fees included</h3>
               <p className="text-[14px] text-[#5e6573] leading-relaxed">
-                Complete conveyancing checks, contract structures (arras), and lawyer handover at the notary are fully covered in our flat fee.
+                Complete conveyancing work, from contract structures (arras), to notary (completion) are fully covered in our flat fee. 
               </p>
               <a href="#contact" className="inline-block text-[#00847b] font-bold text-[14px] underline hover:text-[#006b64]">
                 See what legal checks are covered
