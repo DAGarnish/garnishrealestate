@@ -52,9 +52,9 @@ export default function Home() {
             <Image 
               src="/Garnish-Real-Estate-Logo.png" 
               alt="Garnish Real Estate Logo" 
-              width={220} 
-              height={64} 
-              className="object-contain h-14 w-auto filter brightness-95"
+              width={275} 
+              height={80} 
+              className="object-contain h-[70px] w-auto filter brightness-95"
               priority
             />
             {/* Main Nav Items */}
@@ -110,20 +110,20 @@ export default function Home() {
 
       {/* Hero Section - Rightmove Dark Navy Banner style */}
       <section className="relative bg-[#000433] text-white py-16 md:py-24 overflow-hidden">
-        {/* Subtle Background Image Faded */}
+        {/* Vibrant Golden Hour Background Image - Dimmed 60% */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/Player-sitges.jpeg" 
+            src="/sitges_hero_panoramic.png" 
             alt="Sitges Property" 
             fill 
-            className="object-cover object-center opacity-30 scale-100 filter brightness-50"
+            className="object-cover object-[center_35%] opacity-100 scale-100"
             priority
           />
-          <div className="absolute inset-0 bg-[#000433]/70"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-8 !text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
             Independent property buying support in Sitges, Barcelona, and across Catalonia.
           </h1>
 
@@ -142,9 +142,9 @@ export default function Home() {
                 >
                   <option value="Sitges">Sitges (Premium Coastline)</option>
                   <option value="Barcelona">Barcelona (City & Metropolitan)</option>
-                  <option value="Sitges & Barcelona">Sitges & Barcelona (Both)</option>
+                  <option value="Tortosa to Castelldefels">Tortosa to Castelldefels</option>
                   <option value="Catalonia Coast">Costa Brava / Coastal Catalonia</option>
-                  <option value="Catalonia Inland">Catalonia Inland</option>
+                  <option value="Inland Catalonia">Inland Catalonia</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#000433]">
                   <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -168,7 +168,7 @@ export default function Home() {
               </div>
             </div>
             
-            <p className="text-[12px] text-[#5e6573] mt-3 text-center sm:text-left">
+            <p className="text-[12px] text-[#5e6573] mt-3 text-center sm:text-left font-semibold">
               Buyer-first guidance | All legal fees included | Sitges, Barcelona & Catalonia
             </p>
           </div>
@@ -185,7 +185,7 @@ export default function Home() {
             A more transparent way to buy property in Spain
           </h2>
           <p className="text-[#5e6573] text-base font-light leading-relaxed">
-            Whether you’re after an exclusive coastal villa in Sitges, a modern luxury apartment in Barcelona, or a rustic country estate in Catalonia, we protect your interests from double-commission traps and guide you securely through the Spanish bureaucracy.
+            Whether you’re after an exclusive coastal villa in or around Sitges, a modern luxury apartment in Barcelona, or a rustic country estate in Catalonia, we guide you securely through the bureaucracy, and protect your interests from things like double-commission traps.
           </p>
         </section>
 
@@ -297,8 +297,26 @@ export default function Home() {
 
             {/* Guide 3 */}
             <div className="bg-[#ffffff] border border-[#dbdee0] rounded-lg p-6 flex items-start gap-4">
-              <div className="w-10 h-10 rounded bg-[#e0fbf7] flex items-center justify-center text-[#00847b] flex-shrink-0">
-                🇪🇸
+              <div className="w-10 h-10 rounded bg-[#e0fbf7] flex items-center justify-center flex-shrink-0">
+                <svg className="w-7 h-5 rounded-sm shadow-md" viewBox="0 0 9 6" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="flag-wave" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.2"/>
+                      <stop offset="25%" stopColor="#000000" stopOpacity="0.25"/>
+                      <stop offset="50%" stopColor="#ffffff" stopOpacity="0.3"/>
+                      <stop offset="75%" stopColor="#000000" stopOpacity="0.25"/>
+                      <stop offset="100%" stopColor="#ffffff" stopOpacity="0.15"/>
+                    </linearGradient>
+                  </defs>
+                  {/* Catalan Senyera background and stripes */}
+                  <rect width="9" height="6" fill="#FCDD09"/>
+                  <rect y="0.667" width="9" height="0.667" fill="#DA121A"/>
+                  <rect y="2" width="9" height="0.667" fill="#DA121A"/>
+                  <rect y="3.333" width="9" height="0.667" fill="#DA121A"/>
+                  <rect y="4.667" width="9" height="0.667" fill="#DA121A"/>
+                  {/* Wave shading overlay */}
+                  <rect width="9" height="6" fill="url(#flag-wave)"/>
+                </svg>
               </div>
               <div className="space-y-1">
                 <a href="#contact" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
@@ -489,9 +507,9 @@ export default function Home() {
                     >
                       <option value="Sitges">Sitges</option>
                       <option value="Barcelona">Barcelona City</option>
-                      <option value="Sitges & Barcelona">Both regions</option>
+                      <option value="Tortosa to Castelldefels">Tortosa to Castelldefels</option>
                       <option value="Catalonia Coast">Costa Brava / Coastline</option>
-                      <option value="Catalonia Inland">Catalonia Inland</option>
+                      <option value="Inland Catalonia">Inland Catalonia</option>
                     </select>
                   </div>
                 </div>
