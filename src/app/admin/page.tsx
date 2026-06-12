@@ -165,41 +165,53 @@ export default function AdminDashboard() {
             ) : enquiries.length === 0 ? (
               <div className="text-center py-12 text-slate-500">No requests found.</div>
             ) : (
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 text-sm uppercase tracking-wider text-slate-500">
-                    <th className="py-3 px-4 font-semibold">Date</th>
-                    <th className="py-3 px-4 font-semibold">Name</th>
-                    <th className="py-3 px-4 font-semibold">Contact</th>
-                    <th className="py-3 px-4 font-semibold">Details</th>
-                    <th className="py-3 px-4 font-semibold w-1/4">Message</th>
-                    <th className="py-3 px-4 font-semibold text-right">Actions</th>
+                  <tr className="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                    <th className="py-3 px-3 font-semibold">Date</th>
+                    <th className="py-3 px-3 font-semibold">Name</th>
+                    <th className="py-3 px-3 font-semibold">Email</th>
+                    <th className="py-3 px-3 font-semibold">Phone</th>
+                    <th className="py-3 px-3 font-semibold">Origin</th>
+                    <th className="py-3 px-3 font-semibold">Location</th>
+                    <th className="py-3 px-3 font-semibold">Budget</th>
+                    <th className="py-3 px-3 font-semibold">Timeline</th>
+                    <th className="py-3 px-3 font-semibold">Message</th>
+                    <th className="py-3 px-3 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
                   {enquiries.map((enquiry) => (
-                    <tr key={enquiry.id} className="hover:bg-slate-50 align-top text-sm group">
-                      <td className="py-4 px-4 text-slate-600 whitespace-nowrap">
+                    <tr key={enquiry.id} className="hover:bg-slate-50 align-top group">
+                      <td className="py-4 px-3 text-slate-600 whitespace-nowrap">
                         {new Date(enquiry.createdAt).toLocaleDateString()}<br/>
                         <span className="text-xs text-slate-400">{new Date(enquiry.createdAt).toLocaleTimeString()}</span>
                       </td>
-                      <td className="py-4 px-4 font-medium text-[#000433]">{enquiry.name}</td>
-                      <td className="py-4 px-4 text-slate-600">
-                        <a href={`mailto:${enquiry.email}`} className="text-[#00847b] hover:underline block">{enquiry.email}</a>
-                        {enquiry.phone && <span className="text-xs text-slate-500">{enquiry.phone}</span>}
+                      <td className="py-4 px-3 font-medium text-[#000433]">{enquiry.name}</td>
+                      <td className="py-4 px-3 text-slate-600">
+                        <a href={`mailto:${enquiry.email}`} className="text-[#00847b] hover:underline break-all">{enquiry.email}</a>
                       </td>
-                      <td className="py-4 px-4 text-slate-600">
-                        <div><span className="font-semibold">Loc:</span> {enquiry.location}</div>
-                        <div><span className="font-semibold">Budget:</span> {enquiry.budget}</div>
-                        <div><span className="font-semibold">Timeline:</span> {enquiry.timeline}</div>
-                        <div className="text-xs text-slate-400 mt-1">Origin: {enquiry.origin}</div>
+                      <td className="py-4 px-3 text-slate-600 whitespace-nowrap">
+                        {enquiry.phone || '-'}
                       </td>
-                      <td className="py-4 px-4 text-slate-600 text-xs">
-                        <div className="max-w-xs break-words">
+                      <td className="py-4 px-3 text-slate-600">
+                        {enquiry.origin || '-'}
+                      </td>
+                      <td className="py-4 px-3 text-slate-600">
+                        {enquiry.location || '-'}
+                      </td>
+                      <td className="py-4 px-3 text-slate-600 whitespace-nowrap">
+                        {enquiry.budget || '-'}
+                      </td>
+                      <td className="py-4 px-3 text-slate-600 whitespace-nowrap">
+                        {enquiry.timeline || '-'}
+                      </td>
+                      <td className="py-4 px-3 text-slate-600 text-xs min-w-[200px]">
+                        <div className="break-words">
                           {enquiry.message || <span className="text-slate-400 italic">No message provided</span>}
                         </div>
                       </td>
-                      <td className="py-4 px-4 text-right">
+                      <td className="py-4 px-3 text-right">
                         <button 
                           onClick={() => handleDelete(enquiry.id)}
                           className="text-red-500 hover:text-red-700 text-xs font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity bg-red-50 px-3 py-1 rounded cursor-pointer"
