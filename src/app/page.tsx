@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [propertyPrice, setPropertyPrice] = useState<number>(600000);
@@ -14,6 +16,7 @@ export default function Home() {
     origin: 'US',
     location: 'Sitges',
     budget: '€500,000 - €1,000,000',
+    timeline: 'As soon as possible',
     message: ''
   });
 
@@ -24,25 +27,43 @@ export default function Home() {
   const garnishTotal = 5000;
   const savings = traditionalTotal - garnishTotal;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setEnquirySent(true);
-    setTimeout(() => {
-      setEnquirySent(false);
-      setEnquiryData({
-        name: '',
-        email: '',
-        phone: '',
-        origin: 'US',
-        location: 'Sitges',
-        budget: '€500,000 - €1,000,000',
-        message: ''
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(enquiryData),
       });
-    }, 5000);
+      if (response.ok) {
+        toast.success("Consultation Request Received!");
+        setEnquirySent(true);
+        setTimeout(() => {
+          setEnquirySent(false);
+          setEnquiryData({
+            name: '',
+            email: '',
+            phone: '',
+            origin: 'US',
+            location: 'Sitges',
+            budget: '€500,000 - €1,000,000',
+            timeline: 'As soon as possible',
+            message: ''
+          });
+        }, 5000);
+      } else {
+        toast.error('Failed to submit enquiry. Please try again.');
+        console.error('Failed to submit enquiry');
+      }
+    } catch (error) {
+      toast.error('An error occurred. Please try again.');
+      console.error('Error submitting enquiry:', error);
+    }
   };
 
   return (
     <div className="min-h-screen bg-[#f3f4f6] text-[#000433] font-sans selection:bg-[#00deb6] selection:text-[#000433]">
+      <ToastContainer position="top-right" autoClose={5000} />
       
       {/* Rightmove-Style Navigation Header */}
       <header className="bg-white border-b border-[#dbdee0] sticky top-0 z-50">
@@ -54,7 +75,8 @@ export default function Home() {
               alt="Garnish Real Estate Logo" 
               width={275} 
               height={80} 
-              className="object-contain h-[70px] w-auto filter brightness-95"
+              style={{ width: 'auto', height: '70px' }}
+              className="object-contain filter brightness-95"
               priority
             />
             {/* Main Nav Items */}
@@ -116,6 +138,7 @@ export default function Home() {
             src="/sitges_hero_panoramic.png" 
             alt="Sitges Property" 
             fill 
+            sizes="100vw"
             className="object-cover object-[center_35%] opacity-100 scale-100"
             priority
           />
@@ -204,6 +227,7 @@ export default function Home() {
                   src="/luxury_search_shortlist.png" 
                   alt="Search and shortlisting villa" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -223,6 +247,7 @@ export default function Home() {
                   src="/luxury_negotiation_agent.png" 
                   alt="Negotiation support" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -242,6 +267,7 @@ export default function Home() {
                   src="/luxury_legal_handover.png" 
                   alt="Legal conveyancing" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -530,11 +556,15 @@ export default function Home() {
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-[#000433] uppercase tracking-wider mb-2">When do you plan to buy?</label>
-                    <select className="w-full bg-[#f3f4f6] border border-[#dbdee0] focus:border-[#00847b] px-4 py-3 rounded text-sm text-[#000433] focus:outline-none transition-colors">
-                      <option>As soon as possible</option>
-                      <option>Within 3-6 months</option>
-                      <option>Within 6-12 months</option>
-                      <option>Just browsing / planning</option>
+                    <select 
+                      value={enquiryData.timeline}
+                      onChange={(e) => setEnquiryData({...enquiryData, timeline: e.target.value})}
+                      className="w-full bg-[#f3f4f6] border border-[#dbdee0] focus:border-[#00847b] px-4 py-3 rounded text-sm text-[#000433] focus:outline-none transition-colors"
+                    >
+                      <option value="As soon as possible">As soon as possible</option>
+                      <option value="Within 3-6 months">Within 3-6 months</option>
+                      <option value="Within 6-12 months">Within 6-12 months</option>
+                      <option value="Just browsing / planning">Just browsing / planning</option>
                     </select>
                   </div>
                 </div>
@@ -575,6 +605,7 @@ export default function Home() {
               alt="Garnish Real Estate Logo" 
               width={180} 
               height={55} 
+              style={{ width: 'auto', height: 'auto' }}
               className="object-contain filter brightness-200 contrast-100 grayscale opacity-80"
             />
             <p className="max-w-sm text-center md:text-left text-[#5e6573] leading-relaxed">
