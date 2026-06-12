@@ -42,8 +42,16 @@ export async function POST(req: Request) {
   }
 }
 
+import { cookies } from 'next/headers';
+
 export async function GET() {
   try {
+    const cookieStore = await cookies();
+    const token = cookieStore.get('admin_token');
+    if (!token || token.value !== 'authenticated') {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const enquiries = await prisma.contactEnquiry.findMany({
       orderBy: {
         createdAt: 'desc',

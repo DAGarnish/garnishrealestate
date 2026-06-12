@@ -583,7 +583,7 @@ export default function Home() {
                 <div className="text-center pt-2">
                   <button 
                     type="submit" 
-                    className="w-full md:w-auto px-10 py-4 bg-[#00847b] text-white text-sm font-bold uppercase tracking-wider rounded hover:bg-[#006b64] transition-colors shadow"
+                    className="w-full md:w-auto px-10 py-4 bg-[#00847b] text-white text-sm font-bold uppercase tracking-wider rounded hover:bg-[#006b64] transition-colors shadow cursor-pointer"
                   >
                     Submit Consultation Request
                   </button>
