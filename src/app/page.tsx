@@ -9,6 +9,7 @@ export default function Home() {
   const [propertyPrice, setPropertyPrice] = useState<number>(600000);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [enquirySent, setEnquirySent] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [enquiryData, setEnquiryData] = useState({
     name: '',
     email: '',
@@ -29,6 +30,7 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -58,6 +60,8 @@ export default function Home() {
     } catch (error) {
       toast.error('An error occurred. Please try again.');
       console.error('Error submitting enquiry:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -582,10 +586,11 @@ export default function Home() {
 
                 <div className="text-center pt-2">
                   <button 
-                    type="submit" 
-                    className="w-full md:w-auto px-10 py-4 bg-[#00847b] text-white text-sm font-bold uppercase tracking-wider rounded hover:bg-[#006b64] transition-colors shadow cursor-pointer"
+                    type="submit"
+                    disabled={isSubmitting} 
+                    className={`w-full md:w-auto px-10 py-4 bg-[#00847b] text-white text-sm font-bold uppercase tracking-wider rounded transition-colors shadow ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#006b64] cursor-pointer'}`}
                   >
-                    Submit Consultation Request
+                    {isSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
                   </button>
                 </div>
 
