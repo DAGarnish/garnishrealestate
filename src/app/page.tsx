@@ -139,7 +139,7 @@ export default function Home() {
         {/* Vibrant Golden Hour Background Image - Dimmed 60% */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/sitges_hero_panoramic.png" 
+            src="/luxury_villa_sitges.png" 
             alt="Sitges Property" 
             fill 
             sizes="100vw"
@@ -211,7 +211,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#000433]">
             A more transparent way to buy property in Spain
           </h2>
-          <p className="text-[#5e6573] text-base font-light leading-relaxed">
+          <p className="text-[#5e6573] text-base leading-relaxed">
             Whether you’re after an exclusive coastal villa in or around Sitges, a modern luxury apartment in Barcelona, or a rustic country estate in Catalonia, we guide you securely through the bureaucracy, and protect your interests from things like double-commission traps.
           </p>
         </section>
