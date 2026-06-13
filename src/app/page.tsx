@@ -25,7 +25,7 @@ export default function Home() {
   const standardLegalFee = propertyPrice * 0.01; // ~1% typical legal fee
   const typicalBuyerAgentFee = propertyPrice * 0.02; // ~2% typical buyer agent fee
   const traditionalTotal = standardLegalFee + typicalBuyerAgentFee;
-  const garnishTotal = 5000;
+  const garnishTotal = 3000;
   const savings = traditionalTotal - garnishTotal;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -402,7 +402,7 @@ export default function Home() {
                   Spanish law firms usually charge around <strong>1% of the purchase price</strong> for conveyancing. Buying agents often request another <strong>2% to 3%</strong>.
                 </p>
                 <p className="text-[#00847b] font-semibold">
-                  Garnish covers all of this for a flat €5,000 total.
+                  Garnish covers all of this for a flat €3,000 total.
                 </p>
               </div>
             </div>
@@ -435,7 +435,7 @@ export default function Home() {
                     <span className="text-[#00847b] block text-xs uppercase tracking-wider">Garnish Real Estate</span>
                     <span className="text-[15px]">Flat Fee (Including Legal)</span>
                   </div>
-                  <span className="text-lg text-[#00847b]">€5,000</span>
+                  <span className="text-lg text-[#00847b]">€3,000</span>
                 </div>
 
               </div>

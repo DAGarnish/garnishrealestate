@@ -16,7 +16,7 @@ const sourceSans = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: "Garnish Real Estate | Independent Property Buying Agent Sitges & Barcelona",
-  description: "Bespoke property buying support and independent buyer representation in Sitges, Barcelona, and Catalonia. Find your luxury home, deal confidently with agents, and save on buyer-side fees with our €5,000 flat rate including all legal fees.",
+  description: "Bespoke property buying support and independent buyer representation in Sitges, Barcelona, and Catalonia. Find your luxury home, deal confidently with agents, and save on buyer-side fees with our €3,000 flat rate including all legal fees.",
   keywords: [
     "Sitges real estate",
     "buy property Sitges Spain",
