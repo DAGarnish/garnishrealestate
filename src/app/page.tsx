@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -301,9 +302,9 @@ export default function Home() {
                 🇺🇸
               </div>
               <div className="space-y-1">
-                <a href="/guides/us-expat-property-guide" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
+                <Link href="/guides/us-expat-property-guide" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
                   US Expat property guide
-                </a>
+                </Link>
                 <p className="text-xs text-[#5e6573] leading-relaxed">
                   Understand the MLS differences, residency issues, remote purchasing, and tax strategies.
                 </p>
@@ -316,9 +317,9 @@ export default function Home() {
                 🇬🇧
               </div>
               <div className="space-y-1">
-                <a href="#contact" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
-                  UK Expat residency guide
-                </a>
+                <Link href="/guides/uk-expat-property-guide" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
+                  UK Expat property guide
+                </Link>
                 <p className="text-xs text-[#5e6573] leading-relaxed">
                   Navigate Spanish banking, NIE processing, and visa alignments post-Brexit.
                 </p>
@@ -349,9 +350,9 @@ export default function Home() {
                 </svg>
               </div>
               <div className="space-y-1">
-                <a href="#contact" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
+                <Link href="/guides/catalonia-area-profiles" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
                   Catalonia area profiles
-                </a>
+                </Link>
                 <p className="text-xs text-[#5e6573] leading-relaxed">
                   Comparing life, logistics, and real estate in Sitges, Barcelona City, and Costa Brava.
                 </p>
