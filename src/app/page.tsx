@@ -301,7 +301,7 @@ export default function Home() {
                 🇺🇸
               </div>
               <div className="space-y-1">
-                <a href="#contact" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
+                <a href="/guides/us-expat-property-guide" className="text-base font-bold text-[#000433] underline hover:text-[#00847b]">
                   US Expat property guide
                 </a>
                 <p className="text-xs text-[#5e6573] leading-relaxed">
