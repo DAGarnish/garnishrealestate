@@ -16,7 +16,7 @@ const sourceSans = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: "Property Buying Estate Agent | Sitges, Barcelona, Catalonia",
-  description: "Bespoke property buying agent and legal support. Buyer representation in Sitges, Barcelona, and Catalonia. Find your luxury home, and save money!",
+  description: "Bespoke property buying estate agent and legal support. Buyer representation in Sitges, Barcelona, & Catalonia. Find your luxury home, & save time & money!",
   keywords: [
     "Sitges real estate",
     "buy property Sitges Spain",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Garnish Real Estate" }],
   openGraph: {
     title: "Property Buying Estate Agent | Sitges, Barcelona, Catalonia",
-    description: "Bespoke property buying agent and legal support. Buyer representation in Sitges, Barcelona, and Catalonia. Find your luxury home, and save money!",
+    description: "Bespoke property buying estate agent and legal support. Buyer representation in Sitges, Barcelona, & Catalonia. Find your luxury home, & save time & money!",
     type: "website",
     locale: "en_US",
   }
