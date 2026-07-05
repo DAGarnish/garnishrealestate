@@ -604,7 +604,7 @@ export default function Home() {
 
       {/* Rightmove-Style Dark Navy Footer */}
       <footer className="bg-[#000433] text-[#dbdee0] py-12 text-xs border-t border-[#000852]">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start gap-4">
             <Image 
               src="/Garnish-Real-Estate-Logo.png" 
@@ -614,15 +614,23 @@ export default function Home() {
               style={{ width: 'auto', height: 'auto' }}
               className="object-contain filter brightness-200 contrast-100 grayscale opacity-80"
             />
-            <p className="max-w-sm text-center md:text-left text-[#5e6573] leading-relaxed">
+            <p className="max-w-sm text-[#5e6573] leading-relaxed">
               Bespoke, independent property buying support across Sitges, Barcelona, and Catalonia. We represent buyers, never the sellers.
             </p>
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right text-[#5e6573]">
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <h4 className="font-bold text-white uppercase tracking-wider text-[11px] mb-1">Locations</h4>
+            <Link href="/buy-property-sitges" className="text-[#5e6573] hover:text-[#00deb6] transition-colors">Buy Property in Sitges</Link>
+            <Link href="/buy-property-barcelona" className="text-[#5e6573] hover:text-[#00deb6] transition-colors">Buy Property in Barcelona</Link>
+            <Link href="/buy-property-costa-brava" className="text-[#5e6573] hover:text-[#00deb6] transition-colors">Buy Property in Costa Brava</Link>
+            <Link href="/buy-property-inland-catalonia" className="text-[#5e6573] hover:text-[#00deb6] transition-colors">Buy Property in Inland Catalonia</Link>
+          </div>
+
+          <div className="flex flex-col items-center md:items-end gap-2 text-[#5e6573] md:text-right">
             <p>© {new Date().getFullYear()} Garnish Real Estate. All rights reserved.</p>
             <p>Registration & Licensing in progress. Sitges, Barcelona, Spain.</p>
-            <p className="text-slate-500">
+            <p className="text-slate-500 max-w-[250px]">
               Adapting portal features to assist British and American buyers in Catalonia.
             </p>
           </div>
