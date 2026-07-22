@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans text-[#000433] bg-[#f3f4f6]">
         <main className="flex-grow">{children}</main>
       </body>
+      <GoogleAnalytics gaId="G-GX3LZ38NZ1" />
     </html>
   );
 }
