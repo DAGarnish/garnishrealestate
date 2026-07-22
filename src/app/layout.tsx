@@ -51,7 +51,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans text-[#000433] bg-[#f3f4f6]">
         <main className="flex-grow">{children}</main>
       </body>
-      <GoogleAnalytics gaId="G-GX3LZ38NZ1" />
+      <GoogleAnalytics gaId="G-W1VTPQ6MVR" />
     </html>
   );
 }
